@@ -69,19 +69,6 @@ void Dedg3View::calc()
 		{
 			qDebug() << "catch focusItem";
 		}
-		/*itemPos = oneItem->pos();
-		if (itemPos.x() + oneItem->diameter() >= this->width() || 
-			itemPos.x() <= 0)
-		{
-			oneItem->mVel.setX( -oneItem->mVel.x());
-			oneItem->mAcc.setX(-oneItem->mAcc.x());
-		}
-		if (itemPos.y() + oneItem->diameter() >= this->height() || 
-			itemPos.y() <= 0)
-		{
-			oneItem->mVel.setY(-oneItem->mVel.y());
-			oneItem->mAcc.setY(-oneItem->mAcc.y());
-		}*/
 	}
 
 
@@ -100,6 +87,28 @@ void  Dedg3View::mouseReleaseEvent(QMouseEvent * event)
 void  Dedg3View::wheelEvent(QWheelEvent * event)
 {
 
+}
+
+void Dedg3View::drawForeground(QPainter * painter, const QRectF & rect)
+{
+	QGraphicsView::drawForeground(painter, rect);
+	
+	auto Radius = std::min(width(), height())*0.6;
+	QRadialGradient grd(size().width() / 2, size().height() / 2, Radius, size().width() / 2, size().height() / 2);
+	grd.setColorAt(0, QColor(0, 0, 0, 0));
+	grd.setColorAt(1, QColor(0, 0, 0, 255));
+	auto mSize = size();
+
+	//notie , width() and height() all return int, must cast one to double.
+	auto scale = double(size().width()) / size().height();
+	painter->translate(-size().width() / 2 * (scale - 1), 0);
+	painter->scale(scale,1 );
+	
+	
+
+	painter->setBrush(grd);
+	painter->drawRect(this->rect());
+	
 }
 
 

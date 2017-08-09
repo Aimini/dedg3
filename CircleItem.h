@@ -8,6 +8,7 @@ class CircleItem : public QGraphicsEllipseItem
 		CircleItem(qreal dia , QColor c = qRgba(250,250,250,0.8), QGraphicsItem * parent = 0);
 		QColor color() const;
 		qreal diameter() const;
+		QPointF centerPos() const;
 
 		static void limitVec(vec_t & vec, qreal len);
 		static qreal vecLenSqu(const vec_t & vec);

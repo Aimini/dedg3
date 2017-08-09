@@ -39,6 +39,7 @@ dedg3 * dedg3::create()
 void dedg3::resizeEvent(QResizeEvent * event)
 {
 	//view->update();
+	view->setSceneRect(this->centralWidget()->rect());
 	qDebug() << "-----------------";
 	qDebug() << CPP_COM_VAL(view->pos());
 	

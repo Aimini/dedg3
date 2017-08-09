@@ -37,13 +37,21 @@ CircleItem::CircleItem(qreal rad, QColor c, QGraphicsItem * parent) :QGraphicsEl
 void CircleItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
 	painter->setCompositionMode(QPainter::CompositionMode_Plus);
+	painter->setBrush(QColor(255, 255, 255, 86));
+	painter->drawRect(QRect(diameter() / 2, diameter() / 2, 2, 2));
 	QGraphicsEllipseItem::paint(painter, option, widget);
 }
+
 
 QColor CircleItem::color() const
 {
 	return brush().color();
 }
+QPointF CircleItem::centerPos() const
+{
+	return pos() + QPointF(diameter() / 2, diameter() / 2);
+}
+
 
 void CircleItem::mousePressEvent(QGraphicsSceneMouseEvent * event)
 {

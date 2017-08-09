@@ -15,7 +15,6 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,7 +23,6 @@ class Ui_dedg3Class
 {
 public:
     QWidget *centralWidget;
-    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *dedg3Class)
     {
@@ -34,9 +32,6 @@ public:
         centralWidget = new QWidget(dedg3Class);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         dedg3Class->setCentralWidget(centralWidget);
-        statusBar = new QStatusBar(dedg3Class);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        dedg3Class->setStatusBar(statusBar);
 
         retranslateUi(dedg3Class);
 

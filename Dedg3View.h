@@ -12,6 +12,7 @@ public:
 protected:
 	void mouseReleaseEvent(QMouseEvent * event);
 	void  wheelEvent(QWheelEvent * event);
+	void drawForeground(QPainter * painter, const QRectF & rect);
 	void drawBackground(QPainter * painter, const QRectF & rect);
 	
 

@@ -52,7 +52,7 @@ public:
 	{
 		qreal x = 0, y = 0, dia = 0, maxDia = 0;
 		qDebug() << CPP_COM_VAL(view->size());
-		for (uint i = 0; i < 500; ++i)
+		for (uint i = 0; i < 60; ++i)
 		{
 			CircleItem * one = QtFactory::getRadomCircleItem();
 			dia = one->diameter();
